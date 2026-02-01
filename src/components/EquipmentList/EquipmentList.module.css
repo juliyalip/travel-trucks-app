@@ -1,0 +1,15 @@
+.list{
+    display: grid;
+   grid-template-columns: repeat(3, max-content);
+    gap: 8px;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    background-color: var(--badges);
+    padding: 12px 18px;
+    font-weight: 500;
+}

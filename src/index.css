@@ -10,6 +10,9 @@
   --prymary-background: #FFFFFF;
   --button-backround:  #e44848;
   --button-hover: #d84343;
+  	--gray-light: #dadde1;
+    --text: #475467;
+    --badges: #f2f4f7;
   --white: #fff;
 }
 
@@ -34,3 +37,10 @@ li{
   list-style: none;
 }
 a{text-decoration: none;}
+
+img{
+  display: block;
+  width: 100%;
+}
+
+p{margin: 0;}
