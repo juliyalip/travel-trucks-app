@@ -1,0 +1,16 @@
+.navList{
+    display: flex;
+    gap: 32px;
+    margin-left: 450px;
+}
+
+.base{
+    font-weight: 500;
+    line-height: 1.5;
+    font-size: 16px;
+    color: var(--prymary-text-color);
+}
+
+.active{
+color: var(--button-hover);
+}
