@@ -1,0 +1,44 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  margin: 0;
+}
+
+.favoriteBtn{
+    background-color: var( --prymary-background);
+    border: none;
+    font-size: 20px;
+}
+
+.meta {
+  line-height: 1.5;
+  color: var(--prymary-text-color);
+  font-weight: 400;
+  display: flex;
+
+  gap: 16px;
+}
+
+.description{
+  color: var(--text);
+  line-height: 1.5;
+  margin-top: 28px;
+}
+
+.detailsNav{
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 60px;
+  margin-bottom: 68px;
+}

@@ -1,30 +1,6 @@
+import { Mapper } from '../../helpers/mapper';
 import style from './EquipmentList.module.css'
 
-const Mapper = {
-  transmission: {
-    values: {
-      automatic: "Automatic",
-      manual: "Manual",
-    },
-    icon: "bi-diagram-3",
-  },
-  engine: {
-    values: {
-      diesel: "Diesel",
-      petrol: "Petrol",
-      hybrid: "Hybrid",
-    },
-    icon: "bi-fuel-pump",
-  },
-  kitchen: {
-    label: "Kitchen",
-    icon: "bi-cup-hot",
-  },
-  ac: {
-    label: "AC",
-    icon: "bi-wind",
-  },
-};
 
 export default function EquipmentList({ equipments }) {
   const items = Object.entries(equipments)

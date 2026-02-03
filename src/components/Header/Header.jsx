@@ -5,10 +5,10 @@ import style from './Header.module.css'
 
 export default function Header() {
   return (
-    <header>
+    <header className={style.header}>
       <Container>
-        <div className={style.containerHeader}>
-          <img src={logo} alt="logo" />
+        <div className={style.containerNav}>
+          <img src={logo} alt="logo" width={136} height={16}/>
           <Navigation />
         </div>
       </Container>

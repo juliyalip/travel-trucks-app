@@ -11,3 +11,13 @@ export const fetchTrucks = createAsyncThunk("trucks/fetchAll", async (_, thunkAP
         return thunkAPI.rejectWithValue(e.message)
     }
 })
+
+export const fetchTruckById = createAsyncThunk("trucks/fetchTruk", async (truckId, thunkAPI) => {
+    try {
+        const response = await axios.get(`/campers/${truckId}`)
+        return response.data
+
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.message)
+    }
+})

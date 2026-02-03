@@ -1,0 +1,61 @@
+.section{
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+    display: flex;
+    flex-direction: column;
+    padding: 44px 52px;
+    gap: 24px;
+   background: var(--white);
+    
+}
+
+.title{
+    font-weight: 600;
+font-size: 20px;
+
+line-height: 1.2;
+
+}
+
+.subtitle{
+    font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: var(--gray);
+}
+
+.sectionInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.textarea, .input{
+background: var(--inputs);
+    border-radius: 12px;
+    outline: none;
+    border: none;
+  
+    width: 527px;
+       font-weight: 400;
+line-height: 1.5;
+  padding: 18px;
+}
+
+.input{
+height: 60px;
+
+ }
+
+ .textarea{
+    height: 118px;
+ }
+
+.input::placeholder, .textarea::placeholder{
+    color: var(--gray);
+}
+
+.error{
+    color: red;
+}

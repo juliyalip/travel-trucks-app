@@ -12,8 +12,20 @@
   --button-hover: #d84343;
   	--gray-light: #dadde1;
     --text: #475467;
+    	--gray: #6c717b;
     --badges: #f2f4f7;
   --white: #fff;
+  --inputs: #f7f7f7;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 
@@ -32,15 +44,11 @@ h1 {
 
 ul{
   padding-left: 0;
+  margin: 0;
 }
 li{
   list-style: none;
 }
 a{text-decoration: none;}
-
-img{
-  display: block;
-  width: 100%;
-}
 
 p{margin: 0;}

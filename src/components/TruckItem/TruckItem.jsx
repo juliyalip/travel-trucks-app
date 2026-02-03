@@ -1,5 +1,6 @@
 import EquipmentList from "../EquipmentList/EquipmentList";
-import Button from "../Button/Button";
+import NavButton from "../NavButton/NavButton";
+import { getSpoiler } from "../../helpers/getSpoiler";
 import style from "./TruckItem.module.css";
 
 export default function TruckItem({
@@ -19,7 +20,8 @@ export default function TruckItem({
 }) {
   const url = gallery?.[0]?.thumb;
   const reviewsCount = reviews?.length ?? 0;
-  const priceNumber = Number(price) ||0 
+  const priceNumber = Number(price) || 0;
+  const spoilerText = getSpoiler(description);
   return (
     <li className={style.card}>
       <div className={style.container}>
@@ -27,43 +29,55 @@ export default function TruckItem({
           <img src={url} alt={name} loading="lazy" className={style.image} />
         </div>
 
-        <div className={style.content}>
-          <div className={style.header}>
-            <p className={style.title}>{name}</p>
+        <div className={style.mainContent}>
 
-            <div className={style.sectionPrice}>
-              <span className={style.title}>&#8364;{priceNumber.toFixed(2)}</span>
-              <button
-                type="button"
-                aria-label="Add to favorites"
-                className={style.favoriteBtn}
-              >
-                <i className="bi bi-heart" />
-              </button>
-            </div>
-          </div>
 
-          <div className={style.meta}>
+          <div className={style.content}>
             <div>
-              <i className="bi bi-star" />
-              <span>
-                {rating} ({reviewsCount} Reviews)
-              </span>
+              <div className={style.header}>
+                <p className={style.title}>{name}</p>
+
+                <div className={style.sectionPrice}>
+                  <span >
+                    &#8364;{priceNumber.toFixed(2)}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label="Add to favorites"
+                    className={style.favoriteBtn}
+                  >
+                    <i className="bi bi-heart" />
+                  </button>
+                </div>
+              </div>
+
+              <div className={style.meta}>
+                <div>
+                  <i className="bi bi-star" />
+                  <span>
+                    {rating} ({reviewsCount} Reviews)
+                  </span>
+                </div>
+
+                <div>
+                  <i className="bi bi-map" />
+                  <span> {location}</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <i className="bi bi-map" />
-              <span> {location}</span>
-            </div>
+
+            <p className={style.description}>{spoilerText}</p>
+
+            <EquipmentList equipments={{  transmission, engine, kitchen, ac  }} />
           </div>
-
-          <p className={style.description}>{description}</p>
-
-          <EquipmentList equipments={{ kitchen, transmission, engine, ac }} />
-
-          <div>
-            <Button>Show more</Button>
-          </div>
+           <div className={style.btnWrap}>
+          <NavButton path={`/catalog/${id}`}>Show more</NavButton>
         </div>
+        </div>
+       
+
+
+
       </div>
     </li>
   );

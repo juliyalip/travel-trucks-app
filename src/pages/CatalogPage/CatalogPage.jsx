@@ -7,6 +7,10 @@ import {
   selectTrucksLoading,
 } from "../../redux/selectors";
 import TrucksList from "../../components/TrucksList/TrucksList";
+import FiltersSection from "../../components/FiltersSection/FiltersSection";
+import Container from "@mui/material/Container";
+import Loader from "../../components/Loader/Loader";
+import style from './CatalogPage.module.css'
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
@@ -22,10 +26,14 @@ export default function CatalogPage() {
 const isTrucks = !isLoading && !error && items.length > 0 && total > 0
 
   return (
-    <div>
-      <div>{isLoading && <p>Loading</p>}</div>
+    <Container>
+    <div className={style.container}>
+ 
+      <FiltersSection />
+           {isLoading && <Loader /> }
     {isTrucks && <TrucksList />}
       {error && <p>Something went wrong. Please try again.</p>}
     </div>
+    </Container>
   );
 }

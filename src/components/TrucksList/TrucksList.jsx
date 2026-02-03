@@ -6,6 +6,8 @@ import style from './TrucksList.module.css'
 export default function TrucksList() {
   const { items } = useSelector(selectTrucksItems);
 
+ 
+
   return (
     <ul className={style.list}>
       {items.map((item) => (

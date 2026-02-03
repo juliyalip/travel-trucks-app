@@ -1,4 +1,12 @@
-.containerHeader{
+.header{
+   background: var(--inputs);
+ }
+
+.containerNav{
     display: flex;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+ 
 }
 
