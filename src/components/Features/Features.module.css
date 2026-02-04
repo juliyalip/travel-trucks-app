@@ -15,7 +15,7 @@
 }
 
 .detailsList{
-    border-top: 1px solid gray;
+    border-top: 1px solid var(--inputs);
     display: grid;
     gap: 16px;
     padding-top: 24px;

@@ -11,10 +11,12 @@
 border: 1px solid var(--gray-light);
 border-radius: 12px;
 padding: 16px 18px;
-width: 112px;
+min-width: 112px;
 height: 96px;
 display: flex;
 flex-direction: column;
+align-items: center;
+justify-content: center;
 color: var(--prymary-text-color) !important;
 font-weight: 500 ;
 font-size: 16px;
@@ -22,9 +24,10 @@ line-height: 1.5;
 letter-spacing: -0.01em;
 }
 
-.item:global(.Mui-selected){
+.item:global(.Mui-selected) {
     border-color: var(--button-hover);
     background-color: transparent !important;
+   
 }
 
 .title{
@@ -33,4 +36,13 @@ font-size: 20px;
 line-height: 1.2;
 color: var(--prymary-text-color);
 margin-bottom: 24px;
+}
+
+.list :global(.MuiToggleButtonGroup-grouped){
+    border-left: 1px solid var(--gray-light) !important;
+
+}
+.list :global(.MuiToggleButtonGroup-grouped.Mui-selected){
+   border-left: 1px solid var(--button-hover) !important;
+
 }

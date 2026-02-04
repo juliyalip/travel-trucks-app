@@ -24,7 +24,7 @@ export default function TruckDetailPage() {
   if (error) return <p>Something went wrong. Please try again.</p>;
   if (!item) return null;
 
-
+console.log(item)
   const { name, gallery, reviews, description, location, price, rating } = item;
   const priceNumber = Number(price) || 0;
   const reviewsCount = reviews?.length ?? 0;

@@ -46,7 +46,7 @@ export default function TruckItem({
                     aria-label="Add to favorites"
                     className={style.favoriteBtn}
                   >
-                    <i className="bi bi-heart" />
+                    <i className="bi bi-suit-heart" />
                   </button>
                 </div>
               </div>
