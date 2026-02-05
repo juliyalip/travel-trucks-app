@@ -5,35 +5,36 @@ import {
   selectTrucksItems,
   selectTrucksError,
   selectTrucksLoading,
+  selectTrucksTotal,
 } from "../../redux/selectors";
 import TrucksList from "../../components/TrucksList/TrucksList";
 import FiltersSection from "../../components/FiltersSection/FiltersSection";
 import Container from "@mui/material/Container";
 import Loader from "../../components/Loader/Loader";
-import style from './CatalogPage.module.css'
+import style from "./CatalogPage.module.css";
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
 
   const isLoading = useSelector(selectTrucksLoading);
-  const {total = 0, items = []} = useSelector(selectTrucksItems) || {};
+  const items = useSelector(selectTrucksItems);
+  const total = useSelector(selectTrucksTotal);
   const error = useSelector(selectTrucksError);
 
   useEffect(() => {
     dispatch(fetchTrucks());
   }, [dispatch]);
 
-const isTrucks = !isLoading && !error && items.length > 0 && total > 0
+  const isTrucks = !isLoading && !error && items.length > 0 && total > 0;
 
   return (
     <Container>
-    <div className={style.container}>
- 
-      <FiltersSection />
-           {isLoading && <Loader /> }
-    {isTrucks && <TrucksList />}
-      {error && <p>Something went wrong. Please try again.</p>}
-    </div>
+      <div className={style.container}>
+        <FiltersSection />
+        {isLoading && <Loader />}
+        {isTrucks && <TrucksList />}
+        {error && <p>Something went wrong. Please try again.</p>}
+      </div>
     </Container>
   );
 }

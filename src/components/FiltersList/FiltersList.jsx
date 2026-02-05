@@ -4,7 +4,6 @@ import ToggleButton from "@mui/material/ToggleButton";
 import style from './FiltersList.module.css'
 
 export default function FilterList({title,  items, multiple = false, value, setValue }) {
- 
 
   const handleFilter = (event, newValue) => {
     if(!multiple && newValue === null) return

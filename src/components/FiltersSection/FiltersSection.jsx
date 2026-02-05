@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch} from "react-redux";
+import { resetResults, runSearch } from "../../redux/trucksSlice";
 import FilterList from "../FiltersList/FiltersList";
 import { equipmentsList, vehicleTypes } from "../../helpers/mapper";
 import Button from "../Button/Button";
@@ -8,9 +10,17 @@ export default function FiltersSection() {
   const [location, setLocation] = useState("Ukraine, Kyiv");
   const [filters, setFilters] = useState([]);
   const [type, setType] =useState(null)
+  const dispatch = useDispatch()
 
-  const onChange = (e) => {
-    setLocation(e.target.value);
+  const changeLocation = e => {
+    setLocation(e.target.value)
+  }
+
+  const onSearch = () => {
+     dispatch(resetResults())
+ const form = {location, type, equipments: filters};
+ dispatch(runSearch(form))
+
   };
 
  
@@ -28,7 +38,7 @@ export default function FiltersSection() {
               type="text"
               className={style.input}
               value={location}
-              onChange={onChange}
+              onChange={changeLocation}
             />
           </span>
         </div>
@@ -49,7 +59,7 @@ export default function FiltersSection() {
         </div>
       </div>
 
-      <Button>Search</Button>
+      <Button onClickBtn={onSearch}>Search</Button>
     </div>
   );
 }
