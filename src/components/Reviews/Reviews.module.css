@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    gap: 40px;
+    grid-template-columns:  1fr 1fr;
+    margin-bottom: 80px;
+    padding: 44px;
+    border-top: 1px solid var(--badges);
+}
+
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--badges);
+    margin-right: 16px;
+}
+
+.titleSection{
+    display: flex;
+    margin-bottom: 16px;
+}

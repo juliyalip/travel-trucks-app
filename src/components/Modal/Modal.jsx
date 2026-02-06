@@ -25,6 +25,7 @@ export default function Modal() {
   const handleSubmit = (config, actions) => {
     console.log(config);
     actions.resetForm();
+    alert("We will call you soon!")
   };
 
   return (
