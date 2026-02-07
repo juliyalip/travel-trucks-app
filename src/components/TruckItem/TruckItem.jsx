@@ -16,22 +16,23 @@ export default function TruckItem({
   rating,
   kitchen,
   transmission,
-tv, radio,bathroom,
+  tv,
+  radio,
+  bathroom,
   engine,
   reviews,
 }) {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const isFav = useSelector((s) => s.favorites.ids.includes(id))
+  const isFav = useSelector((s) => s.favorites.ids.includes(id));
   const url = gallery?.[0]?.thumb;
   const reviewsCount = reviews?.length ?? 0;
   const priceNumber = Number(price) || 0;
   const spoilerText = getSpoiler(description);
 
-  const onClickFav = (id)=>{
-    dispatch(toggleFavorite(id))
-  }
+  const onClickFav = (id) => {
+    dispatch(toggleFavorite(id));
+  };
 
   return (
     <li className={style.card}>
@@ -41,23 +42,27 @@ tv, radio,bathroom,
         </div>
 
         <div className={style.mainContent}>
-
-
           <div className={style.content}>
             <div>
               <div className={style.header}>
                 <p className={style.title}>{name}</p>
 
                 <div className={style.sectionPrice}>
-                  <span >
-                    &#8364;{priceNumber.toFixed(2)}
-                  </span>
+                  <span>&#8364;{priceNumber.toFixed(2).replace(".", ",")}</span>
                   <button
                     type="button"
                     aria-label="Add to favorites"
-                    className={style.favoriteBtn} onClick={() =>onClickFav(id)} 
+                    className={style.favoriteBtn}
+                    onClick={() => onClickFav(id)}
                   >
-                    <i className="bi bi-suit-heart" style={{color: isFav ? "var(--rating)" : "var(--prymary-text-color)"}} />
+                    <i
+                      className="bi bi-suit-heart"
+                      style={{
+                        color: isFav
+                          ? "var(--rating)"
+                          : "var(--prymary-text-color)",
+                      }}
+                    />
                   </button>
                 </div>
               </div>
@@ -79,16 +84,22 @@ tv, radio,bathroom,
 
             <p className={style.description}>{spoilerText}</p>
 
-            <EquipmentList equipments={{  transmission, engine, kitchen, ac , tv, radio,bathroom }} />
+            <EquipmentList
+              equipments={{
+                transmission,
+                engine,
+                kitchen,
+                ac,
+                tv,
+                radio,
+                bathroom,
+              }}
+            />
           </div>
-           <div className={style.btnWrap}>
-          <NavButton path={`/catalog/${id}`}>Show more</NavButton>
+          <div className={style.btnWrap}>
+            <NavButton path={`/catalog/${id}`}>Show more</NavButton>
+          </div>
         </div>
-        </div>
-       
-
-
-
       </div>
     </li>
   );

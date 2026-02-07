@@ -9,7 +9,7 @@
 
 .item{
 border: 1px solid var(--gray-light);
-border-radius: 12px;
+border-radius: 12px !important;
 padding: 16px 18px;
 min-width: 112px;
 height: 96px;
