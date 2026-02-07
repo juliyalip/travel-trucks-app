@@ -7,15 +7,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --prymary-text-color: #101828;
-  --prymary-background: #FFFFFF;
-  --button-backround:  #e44848;
+  --prymary-background: #ffffff;
+  --button-backround: #e44848;
   --button-hover: #d84343;
-  	--gray-light: #dadde1;
-    --text: #475467;
-    	--gray: #6c717b;
-         --badges: #f2f4f7;
+  --gray-light: #dadde1;
+  --text: #475467;
+  --gray: #6c717b;
+  --badges: #f2f4f7;
   --white: #fff;
   --inputs: #f7f7f7;
+  --rating: #ffc531;
 }
 
 html {
@@ -28,13 +29,11 @@ html {
   box-sizing: inherit;
 }
 
-
 body {
-   font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   background-color: var(--prymary-background);
   color: var(--prymary-text-color);
-  
 }
 
 h1 {
@@ -42,13 +41,17 @@ h1 {
   line-height: 1.1;
 }
 
-ul{
+ul {
   padding-left: 0;
   margin: 0;
 }
-li{
+li {
   list-style: none;
 }
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
-p{margin: 0;}
+p {
+  margin: 0;
+}

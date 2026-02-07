@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams , NavLink, Outlet} from "react-router-dom";
 import { useEffect } from "react";
+import clsx from "clsx";
 import { selectTruckDetails } from "../../redux/selectors";
 import { fetchTruckById } from "../../redux/trucksOperations";
 import Container from '../../components/Container/Container'
@@ -14,8 +15,6 @@ export default function TruckDetailPage() {
 
   const { isLoading, item, error } = useSelector(selectTruckDetails);
 
-
-
   useEffect(() => {
     dispatch(fetchTruckById(truckId));
   }, [dispatch, truckId]);
@@ -24,7 +23,9 @@ export default function TruckDetailPage() {
   if (error) return <p>Something went wrong. Please try again.</p>;
   if (!item) return null;
 
-console.log(item)
+const buildLinkClass = ({ isActive }) => {
+  return clsx(style['base'], isActive && style['active']);
+};
   const { name, gallery, reviews, description, location, price, rating } = item;
   const priceNumber = Number(price) || 0;
   const reviewsCount = reviews?.length ?? 0;
@@ -55,16 +56,18 @@ console.log(item)
       <p className={style.description}>{description}</p>
 
       <ul className={style.detailsNav}>
-        <li>
-          <NavLink to="features">Features</NavLink>
+        <li className={style.detailsNavItem}>
+          <NavLink to="features" className={buildLinkClass}>Features</NavLink>
 
         </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
+        <li className={style.detailsNavItem}>
+          <NavLink to="reviews" className={buildLinkClass}>Reviews</NavLink>
         </li>
 
       </ul>
+      <div className={style.containerMenu}>
       <Outlet />
+      </div>
     </Container>
     </div>
   );

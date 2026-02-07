@@ -8,7 +8,7 @@ const normalizeKeys = (obj = {}) => {
 export const applyFilters = (items, filters = {}) => {
     const loc = norm(filters.location);
     const type = norm(filters.type)
-    const selected = (filters.equipments ?? [].map(norm))
+    const selected = (filters.equipments ?? []).map(norm)
 
     return items.filter((camper) => {
         const okLocation = !loc || norm(camper.location) === loc;

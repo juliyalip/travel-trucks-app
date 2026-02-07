@@ -11,7 +11,7 @@ const slice = createSlice({
     initialState,
     reducers: {
         setLocation(state, { payload }) {
-            state.location = { payload }
+            state.location = payload
         },
         setType(state, { payload }) {
             state.type = payload

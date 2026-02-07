@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/favoritesSlice";
 import EquipmentList from "../EquipmentList/EquipmentList";
 import NavButton from "../NavButton/NavButton";
 import { getSpoiler } from "../../helpers/getSpoiler";
@@ -14,14 +16,23 @@ export default function TruckItem({
   rating,
   kitchen,
   transmission,
-
+tv, radio,bathroom,
   engine,
   reviews,
 }) {
+
+  const dispatch = useDispatch()
+
+  const isFav = useSelector((s) => s.favorites.ids.includes(id))
   const url = gallery?.[0]?.thumb;
   const reviewsCount = reviews?.length ?? 0;
   const priceNumber = Number(price) || 0;
   const spoilerText = getSpoiler(description);
+
+  const onClickFav = (id)=>{
+    dispatch(toggleFavorite(id))
+  }
+
   return (
     <li className={style.card}>
       <div className={style.container}>
@@ -44,9 +55,9 @@ export default function TruckItem({
                   <button
                     type="button"
                     aria-label="Add to favorites"
-                    className={style.favoriteBtn}
+                    className={style.favoriteBtn} onClick={() =>onClickFav(id)} 
                   >
-                    <i className="bi bi-suit-heart" />
+                    <i className="bi bi-suit-heart" style={{color: isFav ? "var(--rating)" : "var(--prymary-text-color)"}} />
                   </button>
                 </div>
               </div>
@@ -68,7 +79,7 @@ export default function TruckItem({
 
             <p className={style.description}>{spoilerText}</p>
 
-            <EquipmentList equipments={{  transmission, engine, kitchen, ac  }} />
+            <EquipmentList equipments={{  transmission, engine, kitchen, ac , tv, radio,bathroom }} />
           </div>
            <div className={style.btnWrap}>
           <NavButton path={`/catalog/${id}`}>Show more</NavButton>

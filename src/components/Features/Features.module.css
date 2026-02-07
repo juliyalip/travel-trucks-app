@@ -1,12 +1,4 @@
-.container{
-    display: grid;
-    gap: 40px;
-    grid-template-columns:  1fr 1fr;
-    margin-bottom: 80px;
-    padding: 44px;
-   border-top: 1px solid var(--badges);
 
-}
 
 .section{
     border-radius: 10px;

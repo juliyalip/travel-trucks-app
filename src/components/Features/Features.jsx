@@ -30,7 +30,7 @@ export default function Features() {
     { label: "Consumption", value: consumption },
   ];
 
-  return (<div className={style.container}>
+  return (<>
     <div className={style.section}>
       <EquipmentList equipments={{  transmission, engine, kitchen, ac }} />
       <p className={style.title}>Vehicle details</p>
@@ -46,6 +46,6 @@ export default function Features() {
     </div>
 
     <Modal />
-    </div>
+    </>
   );
 }

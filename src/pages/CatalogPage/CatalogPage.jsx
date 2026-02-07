@@ -20,7 +20,6 @@ export default function CatalogPage() {
   const items = useSelector(selectTrucksItems);
   const total = useSelector(selectTrucksTotal);
   const error = useSelector(selectTrucksError);
-  console.log(items)
 
   useEffect(() => {
     dispatch(fetchTrucks());

@@ -30,10 +30,11 @@ export const Mapper = {
     label: "Bathroom",
     icon: "bi-droplet",
   },
-  redio: {
+  radio: {
     label: "Radio",
     icon: "bi-broadcast",
   },
+
 };
 
 export const equipmentsList = [
@@ -45,22 +46,28 @@ export const equipmentsList = [
   {
     label: "Kitchen",
     icon: "bi-cup-hot",
-  },{
+  },
+  {
     label: "TV",
     icon: "bi-tv",
-  }, {
+  },
+  {
     label: "Bathroom",
     icon: "bi-droplet",
-  }
+  },
 ];
 
-export const vehicleTypes = [ {
+export const vehicleTypes = [
+  {
     label: "Van",
     icon: "bi-truck",
-  },{
+  },
+  {
     label: "Fully Integrated",
     icon: "bi-grid",
-  }, {
+  },
+  {
     label: "Alcove",
     icon: "bi-grid-3x3-gap",
-  }]
+  },
+];

@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import style from "./FiltersSection.module.css";
 
 export default function FiltersSection() {
-  const [location, setLocation] = useState("Ukraine, Kyiv");
+  const [location, setLocation] = useState("");
   const [filters, setFilters] = useState([]);
   const [type, setType] =useState(null)
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ export default function FiltersSection() {
   }
 
   const onSearch = () => {
-    const form = {location, type, equipments: filters};
+    const form = {location: location?.trim() || "", type, equipments: filters};
       dispatch(resetResults())
  dispatch(runSearch(form))
 
@@ -37,7 +37,7 @@ export default function FiltersSection() {
             <input
               type="text"
               className={style.input}
-              value={location}
+              value={location} placeholder="Ukraine, Kyiv"
               onChange={changeLocation}
             />
           </span>
