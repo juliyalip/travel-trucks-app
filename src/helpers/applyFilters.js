@@ -5,19 +5,27 @@ const normalizeKeys = (obj = {}) => {
         Object.entries(obj).map(([k, v]) => [norm(k), v]));
 }
 
-export const applyFilters = (items, filters) => {
+export const applyFilters = (items, filters = {}) => {
     const loc = norm(filters.location);
     const type = norm(filters.type)
-    const equipments = (filters.equipments ?? []).map(norm)
+    const selected = (filters.equipments ?? [].map(norm))
 
     return items.filter((camper) => {
         const okLocation = !loc || norm(camper.location) === loc;
 
         const okType = !type || norm(camper.form) === type;
 
-        const boolField = normalizeKeys(camper)
-        const okEquip = equipments.length === 0 || equipments.every((key) => Boolean(boolField[key]));
+        const boolFields = normalizeKeys(camper)
 
-        return okLocation && okType && okEquip
+        const okSelected = selected.length === 0 ||
+            selected.every((key) => {
+                if (key === "automatic" || key === "manual") {
+                    return norm(camper.transmission) === key
+                }
+                return Boolean(boolFields[key]);
+            });
+        return okLocation && okType && okSelected
     })
 }
+
+

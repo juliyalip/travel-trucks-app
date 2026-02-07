@@ -19,6 +19,7 @@ const slice = createSlice({
 
         }, runSearch(state, { payload }) {
             const filters = payload;
+            
             state.results = filters ? applyFilters(state.items, filters) : state.items;
             state.visibleCount = 4
         },

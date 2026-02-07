@@ -17,8 +17,8 @@ export default function FiltersSection() {
   }
 
   const onSearch = () => {
-     dispatch(resetResults())
- const form = {location, type, equipments: filters};
+    const form = {location, type, equipments: filters};
+      dispatch(resetResults())
  dispatch(runSearch(form))
 
   };
